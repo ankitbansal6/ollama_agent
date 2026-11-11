@@ -13,7 +13,7 @@ agent = create_agent(model=model, system_prompt= "you are a postgres expert. use
                      tools = tools
                      )
 
-
-response = agent.invoke(input={"messages" : ["top customers"]})
+user_input = input("ask question: ")
+response = agent.invoke(input={"messages" : [user_input]})
 
 print(response['messages'][-1].text)                   
