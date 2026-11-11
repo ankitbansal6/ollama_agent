@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from langchain.tools import tool
 
 engine = create_engine(
-    "postgresql+psycopg://postgres@localhost:5432/postgres"
+    "postgresql+psycopg://postgres:postgres123@localhost:5432/postgres"
 )
 
 
