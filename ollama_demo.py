@@ -9,11 +9,14 @@ tools = [execute_query,get_schema,list_tables]
 
 # print(response.text)
 
-agent = create_agent(model=model, system_prompt= "you are a postgres expert. use tools when needed",
-                     tools = tools
-                     )
+agent = create_agent(
+    model=model,
+    system_prompt="You are a PostgreSQL expert. Use the available tools when needed.",
+    tools=tools,
+)
 
-user_input = input("ask question: ")
-response = agent.invoke(input={"messages" : [user_input]})
 
-print(response['messages'][-1].text)                   
+if __name__ == "__main__":
+    user_input = input("ask question: ")
+    response = agent.invoke(input={"messages": [user_input]})
+    print(response["messages"][-1].text)
