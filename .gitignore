@@ -1,0 +1,10 @@
+/.env
+/__pycache__
+/chat.py
+/conditional_wf.py
+/datagpt.py
+/graph.png
+/myvenv
+/parallel_wf.py
+/seq_wf.py
+/tools.py

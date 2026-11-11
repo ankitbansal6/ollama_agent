@@ -1,0 +1,19 @@
+from langchain_ollama import ChatOllama
+from langchain.agents import create_agent
+from lang_tools import execute_query,get_schema,list_tables
+
+model = ChatOllama(model='qwen3:8b')
+
+tools = [execute_query,get_schema,list_tables]
+# response = model.invoke("whats apache spark in 20 words")
+
+# print(response.text)
+
+agent = create_agent(model=model, system_prompt= "you are a postgres expert. use tools when needed",
+                     tools = tools
+                     )
+
+
+response = agent.invoke(input={"messages" : ["top customers"]})
+
+print(response['messages'][-1].text)                   
